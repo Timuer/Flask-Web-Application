@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h1>Todo</h1>
+		<form action="/todo/add" method="POST">
+			<input type="text" name="title"><br/>
+			<input type="submit" value="提交">
+		</form>
+		<div>
+			<table>
+				<tr>
+					<th>Todo项目</th>
+					<th>创建时间</th>
+					<th>更新时间</th>
+					<th>编辑Todo</th>
+					<th>删除Todo</th>
+				</tr>
+				{% for t in todos %}
+				<tr>
+					<td>{{t.title}}</td>
+					<td>{{t.ct}}</td>
+					<td>{{t.ut}}</td>
+					<td><a href='/todo/update?id={{t.id}}'>编辑</a></td>
+					<td><a href='/todo/del?id={{t.id}}'>删除</a></td>				
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</body>
+</html>
